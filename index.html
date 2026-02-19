@@ -200,11 +200,9 @@
             
             mainCtaButton.addEventListener('click', () => {
                 const activeWidget = (currentNiche === 'dental') ? dentalWidget : spaWidget;
-                if (activeWidget && activeWidget.shadowRoot) {
-                    const button = activeWidget.shadowRoot.querySelector('button');
-                    if (button) {
-                        button.click();
-                    }
+                if (activeWidget) {
+                    // Use the official Vapi method to start the call.
+                    activeWidget.start();
                 }
             });
             
