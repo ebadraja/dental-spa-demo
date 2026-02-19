@@ -45,7 +45,6 @@
             }
         }
     </script>
-<link rel="stylesheet" href="/index.css">
 </head>
 <body class="bg-brand-dark text-gray-300 antialiased overflow-x-hidden">
 
@@ -246,7 +245,7 @@
             const initializeVapi = () => {
                 if (vapi) return vapi;
                 try {
-                    vapi = new Vapi(5c3d095d-a33e-4f04-911f-ebcb977afb2b);
+                    vapi = new Vapi(VAPI_PUBLIC_KEY);
 
                     vapi.on('call-start', () => {
                         isCallActive = true;
@@ -318,6 +317,5 @@
             updateUINiche('dental');
         });
     </script>
-<script type="module" src="/index.tsx"></script>
 </body>
 </html>
