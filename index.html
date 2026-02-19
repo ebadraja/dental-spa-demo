@@ -12,7 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-    
+    <script src="https://cdn.jsdelivr.net/npm/@vapi-ai/web-sdk"></script>
+
     <!-- Vapi.ai Widget SDK -->
     <script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
 
@@ -198,24 +199,18 @@
             dentalBtn.addEventListener('click', () => updateUINiche('dental'));
             spaBtn.addEventListener('click', () => updateUINiche('spa'));
             
-          mainCtaButton.addEventListener('click', () => {
+         const vapi = new Vapi("5c3d095d-a33e-4f04-911f-ebcb977afb2b");
 
-    const activeWidget = currentNiche === 'dental' 
-        ? document.getElementById('vapi-widget-dental') 
-        : document.getElementById('vapi-widget-spa');
+          mainCtaButton.addEventListener('click', async () => {
+          const assistantId = ASSISTANT_IDS[currentNiche];
 
-    // small delay to ensure widget is ready
-    setTimeout(() => {
-        if (activeWidget.shadowRoot) {
-            const callBtn = activeWidget.shadowRoot.querySelector('button');
-            if (callBtn) {
-                callBtn.click();
-            }
-        }
-    }, 300);
-
+    try {
+        await vapi.start(assistantId);
+    } catch (error) {
+        console.error("Failed to start call:", error);
+    }
 });
-
+ 
             
             // --- Initial Setup ---
             updateUINiche('dental');
