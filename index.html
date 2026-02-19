@@ -198,13 +198,22 @@
             dentalBtn.addEventListener('click', () => updateUINiche('dental'));
             spaBtn.addEventListener('click', () => updateUINiche('spa'));
             
-            mainCtaButton.addEventListener('click', () => {
-                const activeWidget = (currentNiche === 'dental') ? dentalWidget : spaWidget;
-                if (activeWidget) {
-                    // Use the official Vapi method to start the call.
-                    activeWidget.start();
-                }
-            });
+           mainCtaButton.addEventListener('click', () => {
+    const assistantId = ASSISTANT_IDS[currentNiche];
+    
+    // Using the global VapiSDK to ensure it starts correctly
+    if (window.vapiSDK) {
+        window.vapiSDK.run({
+            apiKey: "5c3d095d-a33e-4f04-911f-ebcb977afb2b", // Your Public Key
+            assistant: assistantId,
+            config: {
+                // You can add overrides here if needed
+            },
+        });
+    } else {
+        console.error("Vapi SDK not loaded yet.");
+    }
+});
             
             // --- Initial Setup ---
             updateUINiche('dental');
