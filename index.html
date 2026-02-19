@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Voice Receptionist | White-Label Solution for Agencies</title>
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -12,21 +13,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/@vapi-ai/web-sdk/dist/vapi.min.js"></script>
 
-
-
-    <!-- Vapi.ai Widget SDK -->
-    <script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
+    <!-- Vapi.ai SDK will be loaded dynamically in the script below -->
 
     <style>
         body {
             font-family: 'Inter', sans-serif;
             transition: background-image 0.5s ease-in-out;
         }
+
         .glow-dental {
             box-shadow: 0 0 5px #10b981, 0 0 15px #10b981, 0 0 30px #10b981, 0 0 60px #10b981;
         }
+
         .glow-spa {
             box-shadow: 0 0 5px #D4AF37, 0 0 15px #D4AF37, 0 0 30px #D4AF37, 0 0 60px #D4AF37;
         }
@@ -45,24 +44,29 @@
             }
         }
     </script>
+
 </head>
+
 <body class="bg-brand-dark text-gray-300 antialiased overflow-x-hidden">
 
     <div id="app" class="relative min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
-        
+
         <!-- Background Gradient -->
-        <div class="absolute top-0 left-0 -translate-x-1/4 -translate-y-1/4 w-96 h-96 rounded-full mix-blend-screen filter blur-3xl opacity-20" id="bg-glow"></div>
+        <div class="absolute top-0 left-0 -translate-x-1/4 -translate-y-1/4 w-96 h-96 rounded-full mix-blend-screen filter blur-3xl opacity-20"
+            id="bg-glow"></div>
 
         <main class="z-10 container mx-auto text-center max-w-4xl py-20">
             <!-- Hero Section -->
             <section class="flex flex-col items-center">
                 <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight">
-                    Never Miss a High-Value <span id="niche-text-accent" class="transition-colors duration-500">Patient</span> Again.
+                    Never Miss a High-Value <span id="niche-text-accent"
+                        class="transition-colors duration-500">Patient</span> Again.
                 </h1>
                 <p class="mt-6 max-w-2xl text-lg sm:text-xl text-gray-400">
                     The AI Receptionist that books, upsells, and integrates—while you sleep.
                 </p>
-                <button id="main-cta-button" class="mt-10 px-8 py-4 text-lg font-bold text-white rounded-full transition-all duration-500 transform hover:scale-105 border-2 border-white/20">
+                <button id="main-cta-button"
+                    class="mt-10 px-8 py-4 text-lg font-bold text-white rounded-full transition-all duration-500 transform hover:scale-105 border-2 border-white/20">
                     Talk to Our AI Now
                 </button>
             </section>
@@ -72,62 +76,71 @@
                 <h2 class="text-2xl font-bold text-white">See How Our AI Adapts</h2>
                 <p class="text-gray-400 mt-2">Select an industry to see a tailored demonstration.</p>
                 <div class="mt-8 flex justify-center gap-4">
-                    <button id="dental-btn" data-niche="dental" class="niche-btn px-6 py-3 font-semibold rounded-lg border-2 transition-all duration-300">
+                    <button id="dental-btn" data-niche="dental"
+                        class="niche-btn px-6 py-3 font-semibold rounded-lg border-2 transition-all duration-300">
                         Dental Clinic
                     </button>
-                    <button id="spa-btn" data-niche="spa" class="niche-btn px-6 py-3 font-semibold rounded-lg border-2 transition-all duration-300">
+                    <button id="spa-btn" data-niche="spa"
+                        class="niche-btn px-6 py-3 font-semibold rounded-lg border-2 transition-all duration-300">
                         Spa & Salon
                     </button>
                 </div>
 
                 <div class="mt-10 p-8 rounded-xl bg-slate-800/50 border border-slate-700 max-w-2xl mx-auto text-left">
                     <h3 class="text-xl font-bold text-white">
-                        Example Scenario: <span id="scenario-title" class="transition-colors duration-500">New Patient Booking</span>
+                        Example Scenario: <span id="scenario-title" class="transition-colors duration-500">New Patient
+                            Booking</span>
                     </h3>
                     <p id="scenario-description" class="mt-3 text-gray-400">
-                        Our AI intelligently handles appointment requests for new patients, verifies insurance information, and schedules them for an initial consultation & cleaning, maximizing your clinic's revenue from day one.
+                        Our AI intelligently handles appointment requests for new patients, verifies insurance
+                        information, and schedules them for an initial consultation & cleaning, maximizing your clinic's
+                        revenue from day one.
                     </p>
                 </div>
             </section>
         </main>
 
-        <!-- Container for the Vapi widgets -->
-        <div id="vapi-widget-container">
-            <vapi-widget
-                id="vapi-widget-dental"
-                public-key="5c3d095d-a33e-4f04-911f-ebcb977afb2b"
-                assistant-id="ba264f76-c73d-4515-af59-7b3572394e22"
-                position="bottom-right"
-                theme="dark"
-                mode="chat"
-                size="full"
-                base-color="#0f172a"
-                accent-color="#10b981"
-            ></vapi-widget>
-            <vapi-widget
-                id="vapi-widget-spa"
-                public-key="5c3d095d-a33e-4f04-911f-ebcb977afb2b"
-                assistant-id="0384a330-e7a7-48fc-9514-0be4908a7605"
-                position="bottom-right"
-                theme="dark"
-                mode="chat"
-                size="full"
-                base-color="#0f172a"
-                accent-color="#D4AF37"
-                style="display: none;"
-            ></vapi-widget>
-        </div>
+        <!-- Vapi SDK Integration - Widget will be injected automatically -->
+        <div id="vapi-widget-container"></div>
     </div>
 
     <script>
-        window.addEventListener('load', () => {
-            // --- Vapi AI Integration ---
-            const ASSISTANT_IDS = {
-                dental: 'ba264f76-c73d-4515-af59-7b3572394e22',
-                spa: '0384a330-e7a7-48fc-9514-0be4908a7605',
-            };
+        // --- Vapi AI Configuration ---
+        const VAPI_PUBLIC_KEY = '5c3d095d-a33e-4f04-911f-ebcb977afb2b';
+        const ASSISTANT_IDS = {
+            dental: 'ba264f76-c73d-4515-af59-7b3572394e22',
+            spa: '0384a330-e7a7-48fc-9514-0be4908a7605',
+        };
 
-            // --- DOM Elements ---
+        // --- State ---
+        let currentNiche = 'dental';
+        let vapiInstance = null;
+
+        // --- Niche Data ---
+        const nicheData = {
+            dental: {
+                accentClass: 'mint-green',
+                glowClass: 'glow-dental',
+                nicheText: 'Patient',
+                scenarioTitle: 'New Patient Booking',
+                scenarioDescription: "Our AI intelligently handles appointment requests for new patients, verifies insurance information, and schedules them for an initial consultation & cleaning, maximizing your clinic's revenue from day one.",
+                gradientColor: 'rgba(16, 185, 129, 0.15)',
+            },
+            spa: {
+                accentClass: 'soft-gold',
+                glowClass: 'glow-spa',
+                nicheText: 'Client',
+                scenarioTitle: 'Luxury Package Upsell',
+                scenarioDescription: "When a client books a standard massage, the AI offers an upgrade to the 'Ultimate Relaxation' package, describing the benefits of the added hot stone therapy and aromatherapy, boosting average order value.",
+                gradientColor: 'rgba(212, 175, 55, 0.15)',
+            }
+        };
+
+        // --- UI Update Function ---
+        const updateUINiche = (niche) => {
+            currentNiche = niche;
+            const data = nicheData[niche];
+
             const mainCtaButton = document.getElementById('main-cta-button');
             const bgGlow = document.getElementById('bg-glow');
             const nicheTextAccent = document.getElementById('niche-text-accent');
@@ -135,88 +148,127 @@
             const scenarioDescription = document.getElementById('scenario-description');
             const dentalBtn = document.getElementById('dental-btn');
             const spaBtn = document.getElementById('spa-btn');
-            const dentalWidget = document.getElementById('vapi-widget-dental');
-            const spaWidget = document.getElementById('vapi-widget-spa');
 
-            // --- State ---
-            let currentNiche = 'dental'; // 'dental' or 'spa'
-            
-            // --- Niche Data ---
-            const nicheData = {
-                dental: {
-                    accentClass: 'mint-green',
-                    glowClass: 'glow-dental',
-                    nicheText: 'Patient',
-                    scenarioTitle: 'New Patient Booking',
-                    scenarioDescription: "Our AI intelligently handles appointment requests for new patients, verifies insurance information, and schedules them for an initial consultation & cleaning, maximizing your clinic's revenue from day one.",
-                    gradientColor: 'rgba(16, 185, 129, 0.15)',
-                },
-                spa: {
-                    accentClass: 'soft-gold',
-                    glowClass: 'glow-spa',
-                    nicheText: 'Client',
-                    scenarioTitle: 'Luxury Package Upsell',
-                    scenarioDescription: "When a client books a standard massage, the AI offers an upgrade to the 'Ultimate Relaxation' package, describing the benefits of the added hot stone therapy and aromatherapy, boosting average order value.",
-                    gradientColor: 'rgba(212, 175, 55, 0.15)',
-                }
-            };
-            
-            // --- Functions ---
-            const updateUINiche = (niche) => {
-                currentNiche = niche;
-                const data = nicheData[niche];
-                
-                document.body.style.backgroundImage = `radial-gradient(ellipse 80% 50% at 50% -20%, ${data.gradientColor}, transparent 70%)`;
+            document.body.style.backgroundImage = `radial-gradient(ellipse 80% 50% at 50% -20%, ${data.gradientColor}, transparent 70%)`;
 
-                mainCtaButton.classList.remove('bg-mint-green', 'bg-soft-gold', 'glow-dental', 'glow-spa');
-                bgGlow.classList.remove('bg-mint-green', 'bg-soft-gold');
-                nicheTextAccent.classList.remove('text-mint-green', 'text-soft-gold');
-                scenarioTitle.classList.remove('text-mint-green', 'text-soft-gold');
-                dentalBtn.classList.remove('bg-mint-green', 'border-mint-green', 'text-white', 'border-gray-600', 'text-gray-400', 'hover:bg-gray-700');
-                spaBtn.classList.remove('bg-soft-gold', 'border-soft-gold', 'text-white', 'border-gray-600', 'text-gray-400', 'hover:bg-gray-700');
+            mainCtaButton.classList.remove('bg-mint-green', 'bg-soft-gold', 'glow-dental', 'glow-spa');
+            bgGlow.classList.remove('bg-mint-green', 'bg-soft-gold');
+            nicheTextAccent.classList.remove('text-mint-green', 'text-soft-gold');
+            scenarioTitle.classList.remove('text-mint-green', 'text-soft-gold');
+            dentalBtn.classList.remove('bg-mint-green', 'border-mint-green', 'text-white', 'border-gray-600', 'text-gray-400', 'hover:bg-gray-700');
+            spaBtn.classList.remove('bg-soft-gold', 'border-soft-gold', 'text-white', 'border-gray-600', 'text-gray-400', 'hover:bg-gray-700');
 
-                mainCtaButton.classList.add(`bg-${data.accentClass}`, data.glowClass);
-                bgGlow.classList.add(`bg-${data.accentClass}`);
-                nicheTextAccent.classList.add(`text-${data.accentClass}`);
-                scenarioTitle.classList.add(`text-${data.accentClass}`);
-                
-                if (niche === 'dental') {
-                    dentalBtn.classList.add(`bg-${data.accentClass}`, `border-${data.accentClass}`, 'text-white');
-                    spaBtn.classList.add('border-gray-600', 'text-gray-400', 'hover:bg-gray-700');
-                    dentalWidget.style.display = 'block';
-                    spaWidget.style.display = 'none';
-                } else {
-                    spaBtn.classList.add(`bg-${data.accentClass}`, `border-${data.accentClass}`, 'text-white');
-                    dentalBtn.classList.add('border-gray-600', 'text-gray-400', 'hover:bg-gray-700');
-                    dentalWidget.style.display = 'none';
-                    spaWidget.style.display = 'block';
-                }
-                
-                nicheTextAccent.textContent = data.nicheText;
-                scenarioTitle.textContent = data.scenarioTitle;
-                scenarioDescription.textContent = data.scenarioDescription;
-            };
+            mainCtaButton.classList.add(`bg-${data.accentClass}`, data.glowClass);
+            bgGlow.classList.add(`bg-${data.accentClass}`);
+            nicheTextAccent.classList.add(`text-${data.accentClass}`);
+            scenarioTitle.classList.add(`text-${data.accentClass}`);
 
-            // --- Event Listeners ---
+            if (niche === 'dental') {
+                dentalBtn.classList.add(`bg-${data.accentClass}`, `border-${data.accentClass}`, 'text-white');
+                spaBtn.classList.add('border-gray-600', 'text-gray-400', 'hover:bg-gray-700');
+            } else {
+                spaBtn.classList.add(`bg-${data.accentClass}`, `border-${data.accentClass}`, 'text-white');
+                dentalBtn.classList.add('border-gray-600', 'text-gray-400', 'hover:bg-gray-700');
+            }
+
+            nicheTextAccent.textContent = data.nicheText;
+            scenarioTitle.textContent = data.scenarioTitle;
+            scenarioDescription.textContent = data.scenarioDescription;
+        };
+
+        // --- DOM Ready: Set up event listeners ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainCtaButton = document.getElementById('main-cta-button');
+            const dentalBtn = document.getElementById('dental-btn');
+            const spaBtn = document.getElementById('spa-btn');
+
             dentalBtn.addEventListener('click', () => updateUINiche('dental'));
             spaBtn.addEventListener('click', () => updateUINiche('spa'));
-            
-         const vapi = new Vapi("5c3d095d-a33e-4f04-911f-ebcb977afb2b");
 
-          mainCtaButton.addEventListener('click', async () => {
-          const assistantId = ASSISTANT_IDS[currentNiche];
+            mainCtaButton.addEventListener('click', () => {
+                if (vapiInstance) {
+                    const assistantId = ASSISTANT_IDS[currentNiche];
+                    vapiInstance.start(assistantId);
+                } else {
+                    alert('Voice assistant is still loading. Please try again in a moment.');
+                }
+            });
 
-    try {
-        await vapi.start(assistantId);
-    } catch (error) {
-        console.error("Failed to start call:", error);
-    }
-});
- 
-            
-            // --- Initial Setup ---
+            // Set initial niche UI
             updateUINiche('dental');
         });
+
+        // --- Load Vapi SDK dynamically (official method) ---
+        function initVapi() {
+            if (!window.vapiSDK) {
+                console.error('Vapi SDK failed to load. Voice assistant will not be available.');
+                return;
+            }
+            try {
+                vapiInstance = window.vapiSDK.run({
+                    apiKey: VAPI_PUBLIC_KEY,
+                    assistant: ASSISTANT_IDS.dental,
+                    config: {
+                        position: "bottom-right",
+                        idle: {
+                            color: "rgb(16, 185, 129)",
+                            type: "pill",
+                            title: "Talk to Our AI",
+                            subtitle: "Click to start a call",
+                            icon: "https://unpkg.com/lucide-static@0.321.0/icons/phone.svg",
+                        },
+                        loading: {
+                            color: "rgb(93, 124, 202)",
+                            type: "pill",
+                            title: "Connecting...",
+                            subtitle: "Please wait",
+                            icon: "https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg",
+                        },
+                        active: {
+                            color: "rgb(255, 0, 0)",
+                            type: "pill",
+                            title: "Call in progress",
+                            subtitle: "Click to end",
+                            icon: "https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg",
+                        },
+                    }
+                });
+                console.log('Vapi SDK initialized successfully.');
+            } catch (e) {
+                console.error('Error initializing Vapi SDK:', e);
+            }
+        }
+
+        (function (d, t) {
+            var g = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+            g.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+            g.defer = true;
+            g.async = true;
+            s.parentNode.insertBefore(g, s);
+
+            g.onload = function () {
+                initVapi();
+            };
+
+            g.onerror = function () {
+                console.error('Failed to load Vapi SDK from primary CDN. Trying fallback...');
+                // Fallback: try the new repo name CDN
+                var fallback = d.createElement(t);
+                fallback.src = "https://cdn.jsdelivr.net/gh/VapiAI/client-sdk-html-script-tag@latest/dist/assets/index.js";
+                fallback.defer = true;
+                fallback.async = true;
+                s.parentNode.insertBefore(fallback, s);
+                fallback.onload = function () {
+                    initVapi();
+                };
+                fallback.onerror = function () {
+                    console.error('Failed to load Vapi SDK from fallback CDN as well.');
+                };
+            };
+        })(document, "script");
     </script>
+
 </body>
+
 </html>
