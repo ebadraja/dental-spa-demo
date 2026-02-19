@@ -1,0 +1,7 @@
+{
+  "name": "AI Voice Receptionist Landing Page",
+  "description": "A high-end, luxury landing page for an AI Voice Receptionist service, designed for marketing agency owners to white-label. Features a dual-niche toggle for Dental and Spa industries.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
