@@ -17,160 +17,66 @@
         }
 
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-white);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            overflow-x: hidden;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            min-height: 100vh; overflow-x: hidden;
         }
 
         /* Hero Section */
-        .hero {
-            text-align: center;
-            max-width: 800px;
-            padding: 20px;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .highlight {
-            transition: var(--transition);
-        }
-
-        .subtext {
-            color: var(--text-gray);
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 40px;
-        }
+        .hero { text-align: center; max-width: 800px; padding: 20px; }
+        h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 10px; }
+        .subtext { color: var(--text-gray); font-size: 1.1rem; margin-bottom: 40px; }
 
         /* Main CTA Button */
         .cta-button {
-            padding: 18px 45px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .cta-button:active {
-            transform: scale(0.98);
+            padding: 18px 45px; font-size: 1.1rem; font-weight: 600;
+            border: none; border-radius: 50px; cursor: pointer;
+            transition: var(--transition); margin-bottom: 60px;
         }
 
         /* Industry Selector */
-        .selector-section {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .selector-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .selector-section p {
-            color: var(--text-gray);
-            margin-bottom: 25px;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-        }
-
+        .selector-section { text-align: center; margin-bottom: 40px; }
+        .btn-group { display: flex; gap: 15px; justify-content: center; margin-top: 20px;}
+        
         .tab-btn {
-            padding: 12px 30px;
-            border: 1px solid #2d3748;
-            background: transparent;
-            color: white;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
+            padding: 12px 30px; border: 1px solid #2d3748;
+            background: transparent; color: white; border-radius: 8px;
+            cursor: pointer; font-weight: 600; transition: var(--transition);
         }
 
-        /* Dynamic Scenario Card */
+        /* Scenario Card */
         .scenario-card {
-            background-color: var(--card-bg);
-            border: 1px solid #1f2f44;
-            border-radius: 12px;
-            padding: 30px;
-            max-width: 600px;
-            text-align: left;
-            margin-top: 20px;
+            background-color: var(--card-bg); border: 1px solid #1f2f44;
+            border-radius: 12px; padding: 30px; max-width: 600px;
         }
+        .scenario-title { font-weight: bold; }
 
-        .scenario-card h4 {
-            margin-top: 0;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .scenario-card p {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* Dental State Colors */
+        /* Mode Styles */
         body.dental-mode .highlight { color: var(--dental-accent); }
-        body.dental-mode .cta-button { 
-            background-color: var(--dental-accent); 
-            color: #000; 
-            box-shadow: 0 0 30px rgba(0, 208, 132, 0.4);
-        }
+        body.dental-mode .cta-button { background-color: var(--dental-accent); color: #000; box-shadow: 0 0 20px rgba(0, 208, 132, 0.3); }
         body.dental-mode .tab-btn.active { background-color: var(--dental-accent); color: #000; border-color: var(--dental-accent); }
         body.dental-mode .scenario-title { color: var(--dental-accent); }
 
-        /* Spa State Colors */
         body.spa-mode .highlight { color: var(--spa-accent); }
-        body.spa-mode .cta-button { 
-            background-color: var(--spa-accent); 
-            color: #000; 
-            box-shadow: 0 0 30px rgba(252, 211, 77, 0.4);
-        }
+        body.spa-mode .cta-button { background-color: var(--spa-accent); color: #000; box-shadow: 0 0 20px rgba(252, 211, 77, 0.3); }
         body.spa-mode .tab-btn.active { background-color: var(--spa-accent); color: #000; border-color: var(--spa-accent); }
         body.spa-mode .scenario-title { color: var(--spa-accent); }
 
-        /* Vapi Specific UI */
-        #vapi-ui-container {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            z-index: 1000;
-            display: none; /* Shown only when call is active */
+        /* Custom End Call Button (Bottom Left) */
+        #end-call-ui {
+            position: fixed; bottom: 30px; left: 30px;
+            display: none; z-index: 100;
         }
-
-        .end-call-btn {
-            background: #ff4b4b;
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(255, 75, 75, 0.3);
+        .end-btn {
+            background: #ff4b4b; color: white; border: none;
+            width: 55px; height: 55px; border-radius: 50%;
+            cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: flex; align-items: center; justify-content: center;
         }
-
     </style>
 </head>
 <body class="dental-mode">
@@ -178,101 +84,92 @@
     <div class="hero">
         <h1>Never Miss a High-Value <span id="mode-text" class="highlight">Patient</span> Again.</h1>
         <p class="subtext">The AI Receptionist that books, upsells, and integrates—while you sleep.</p>
-        
         <button class="cta-button" id="mainCallBtn">Talk to Our AI Now</button>
     </div>
 
     <div class="selector-section">
-        <h3>See How Our AI Adappts</h3>
+        <h3>See How Our AI Adapts</h3>
         <p>Select an industry to see a tailored demonstration.</p>
         <div class="btn-group">
-            <button class="tab-btn active" onclick="switchMode('dental')">Dental Clinic</button>
-            <button class="tab-btn" onclick="switchMode('spa')">Spa & Salon</button>
+            <button id="dentalBtn" class="tab-btn active" onclick="switchMode('dental')">Dental Clinic</button>
+            <button id="spaBtn" class="tab-btn" onclick="switchMode('spa')">Spa & Salon</button>
         </div>
     </div>
 
     <div class="scenario-card">
-        <h4>Example Scenario: <span id="scenario-title" class="scenario-title">New Patient Booking</span></h4>
+        <h4 id="card-header">Example Scenario: <span id="scenario-title" class="scenario-title">New Patient Booking</span></h4>
         <p id="scenario-desc">Our AI intelligently handles appointment requests for new patients, verifies insurance information, and schedules them for an initial consultation & cleaning, maximizing your clinic's revenue from day one.</p>
     </div>
 
-    <div id="vapi-ui-container">
-        <button class="end-call-btn" onclick="vapi.stop()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-6.01-6.01A19.79 19.79 0 0 1 2 4.27 2 2 0 0 1 4 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"></path><line x1="22" y1="2" x2="2" y2="22"></line></svg>
+    <div id="end-call-ui">
+        <button class="end-btn" onclick="window.vapiSDK.stop()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-6.01-6.01A19.79 19.79 0 0 1 2 4.27 2 2 0 0 1 4 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"></path><line x1="22" y1="2" x2="2" y2="22"></line></svg>
         </button>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/vapi-public.js"></script>
-    
     <script>
-        const PUBLIC_KEY = "5c3d095d-a33e-4f04-911f-ebcb977afb2b";
         const ASSISTANT_IDS = {
             dental: 'ba264f76-c73d-4515-af59-7b3572394e22',
             spa: '0384a330-e7a7-48fc-9514-0be4908a7605'
         };
-
         let currentMode = 'dental';
-        const vapi = new Vapi(PUBLIC_KEY);
 
-        // UI Element Switching Logic
+        // 1. Initialize Vapi Widget
+        (function() {
+            var v = window.vapiConfig = {
+                apiKey: "5c3d095d-a33e-4f04-911f-ebcb977afb2b",
+                assistant: ASSISTANT_IDS.dental,
+                config: { position: "bottom-right" }
+            };
+            var s = document.createElement("script");
+            s.type = "text/javascript"; s.async = true;
+            s.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/vapi-widget.js";
+            document.getElementsByTagName("head")[0].appendChild(s);
+        })();
+
+        // 2. Switching Logic
         function switchMode(mode) {
             currentMode = mode;
             const body = document.body;
             const modeText = document.getElementById('mode-text');
             const scenarioTitle = document.getElementById('scenario-title');
             const scenarioDesc = document.getElementById('scenario-desc');
-            const buttons = document.querySelectorAll('.tab-btn');
 
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(mode + 'Btn').classList.add('active');
 
             if (mode === 'dental') {
                 body.className = 'dental-mode';
                 modeText.innerText = 'Patient';
                 scenarioTitle.innerText = 'New Patient Booking';
-                scenarioDesc.innerText = 'Our AI intelligently handles appointment requests for new patients, verifies insurance information, and schedules them for an initial consultation & cleaning, maximizing your clinic\'s revenue from day one.';
+                scenarioDesc.innerText = 'Our AI intelligently handles appointment requests for new patients, verifies insurance information, and schedules them for an initial consultation & cleaning.';
             } else {
                 body.className = 'spa-mode';
                 modeText.innerText = 'Client';
                 scenarioTitle.innerText = 'Luxury Package Upsell';
-                scenarioDesc.innerText = 'When a client books a standard massage, the AI offers an upgrade to the \'Ultimate Relaxation\' package, describing the benefits of the added hot stone therapy and aromatherapy, boosting average order value.';
+                scenarioDesc.innerText = 'When a client books a standard massage, the AI offers an upgrade to the \'Ultimate Relaxation\' package, boosting average order value.';
             }
 
-            // Update Chat Widget to the correct assistant
+            // Update the widget assistant dynamically
             if (window.vapiSDK) {
-                window.vapiSDK.setAssistant(ASSISTANT_IDS[currentMode]);
+                window.vapiSDK.setAssistant(ASSISTANT_IDS[mode]);
             }
         }
 
-        // Voice Call Logic
+        // 3. Trigger Voice Call from Big Button
         document.getElementById('mainCallBtn').addEventListener('click', () => {
-            vapi.start(ASSISTANT_IDS[currentMode]);
+            if (window.vapiSDK) {
+                window.vapiSDK.start();
+            }
         });
 
-        // Vapi Event Listeners for UI
-        vapi.on('call-start', () => {
-            document.getElementById('vapi-ui-container').style.display = 'block';
+        // 4. Handle Visibility of End Call Button
+        window.addEventListener('vapi:call-start', () => {
+            document.getElementById('end-call-ui').style.display = 'block';
         });
-
-        vapi.on('call-end', () => {
-            document.getElementById('vapi-ui-container').style.display = 'none';
+        window.addEventListener('vapi:call-end', () => {
+            document.getElementById('end-call-ui').style.display = 'none';
         });
-
-        // Vapi Chat Widget Configuration
-        (function() {
-            var v = window.vapiConfig = {
-                apiKey: PUBLIC_KEY,
-                assistant: ASSISTANT_IDS[currentMode], // Initial assistant
-                config: {
-                    position: "bottom-right",
-                }
-            };
-            var s = document.createElement("script");
-            s.type = "text/javascript";
-            s.async = true;
-            s.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/vapi-widget.js";
-            document.getElementsByTagName("head")[0].appendChild(s);
-        })();
     </script>
 </body>
 </html>
